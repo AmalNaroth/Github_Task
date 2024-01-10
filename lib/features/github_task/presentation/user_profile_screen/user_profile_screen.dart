@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:github_task/config/routes/app_routes.dart';
 import 'package:github_task/core/navigation_services/navigator_services.dart';
 import 'package:github_task/core/utils/size_utils.dart';
 import 'package:github_task/features/github_task/application/repository_screen/repository_bloc.dart';
 import 'package:github_task/features/github_task/infrastructure/entites/user_entity.dart';
+import 'package:github_task/features/github_task/presentation/widgets/snackbar_widget.dart';
 import 'package:github_task/features/github_task/presentation/widgets/text_widget.dart';
 
 class UserProfileScreen extends StatelessWidget {
@@ -34,10 +36,12 @@ class UserProfileScreen extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            TextWidget(
-                              textValue: args.name ?? "No name",
-                              fontSize: 23,
-                              fontWeight: FontWeight.bold,
+                            Expanded(
+                              child: TextWidget(
+                                textValue: args.name ?? "No name",
+                                fontSize: 23,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ],
                         ),
@@ -114,6 +118,26 @@ class UserProfileScreen extends StatelessWidget {
                     fontColors: Colors.black,
                     fontWeight: FontWeight.bold,
                     fontSize: 17),
+              ),
+              fHight70,
+              BlocConsumer<RepositoryBloc, RepositoryState>(
+                listener: (context, state) {
+                  if (state is RepositoryFoundState) {
+                    NavigatorService.pushNamed(
+                      AppRoutes.repositoryScreen,
+                      arguments: state.repoData
+                    );
+                  } else if (state is RepositoryNotFoundState) {
+                    customSnackBar(state.message, context);
+                  }
+                },
+                builder: (context, state) {
+                  if (state is RepositoryLoadingState) {
+                    return const LinearProgressIndicator();
+                  } else {
+                    return const SizedBox();
+                  }
+                },
               )
             ],
           ),

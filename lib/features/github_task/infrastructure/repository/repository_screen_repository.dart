@@ -1,18 +1,14 @@
-// import 'package:dio/dio.dart';
-// import 'package:github_task/core/resources/data_class.dart';
-// import 'package:github_task/features/github_task/domain/repository_screen/repository_model.dart';
-// import 'package:github_task/features/github_task/domain/repository_screen/repository_services.dart';
-// import 'package:github_task/features/github_task/infrastructure/entites/git_repository_entity.dart';
-
-// class RepositoryScreenRepository implements RepositoryServices{
-//   @override
-
-// }
-
 import 'package:dio/dio.dart';
 import 'package:github_task/core/resources/data_class.dart';
 import 'package:github_task/features/github_task/domain/repository_screen/repository_model.dart';
+import 'package:github_task/features/github_task/domain/repository_screen/repository_services.dart';
 import 'package:github_task/features/github_task/infrastructure/entites/git_repository_entity.dart';
+import 'package:injectable/injectable.dart';
+
+
+@LazySingleton(as: RepositoryServices)
+class RepositoryScreenRepository implements RepositoryServices{
+  @override
 
 Future<DataState<List<RepositoryEntity>>> getRepositoryData(
     {required String repUrl}) async {
@@ -35,4 +31,7 @@ Future<DataState<List<RepositoryEntity>>> getRepositoryData(
       e.toString(),
     );
   }
+}
+
+
 }

@@ -12,7 +12,6 @@ import 'package:github_task/features/github_task/infrastructure/repository/repos
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await configureInjection();
-  getRepositoryData(repUrl: "https://api.github.com/users/AmalNaroth/repos");
   runApp(
     const MyApp(),
   );
@@ -45,6 +44,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: false,
+            appBarTheme: const AppBarTheme().copyWith(
+              backgroundColor: Colors.grey
+            ),
             scaffoldBackgroundColor: Colors.black),
         navigatorKey: NavigatorService.navigatorKey,
         routes: AppRoutes.approutes,

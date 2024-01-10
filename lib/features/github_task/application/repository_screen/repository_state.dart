@@ -8,3 +8,15 @@ sealed class RepositoryState extends Equatable {
 }
 
 final class RepositoryInitial extends RepositoryState {}
+
+final  class RepositoryLoadingState extends RepositoryState{}
+
+final class RepositoryNotFoundState extends RepositoryState{
+  String message;
+  RepositoryNotFoundState({required this.message});
+}
+
+final class RepositoryFoundState extends RepositoryState{
+  List<RepositoryEntity> repoData;
+  RepositoryFoundState({required this.repoData});
+}
