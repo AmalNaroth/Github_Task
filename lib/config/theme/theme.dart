@@ -84,5 +84,5 @@ class AppTheme {
         primaryContainer: _darkPrimaryVariantColor,
       ),
       textTheme: _darkTextTheme,
-      bottomAppBarTheme: BottomAppBarTheme(color: _appbarColorDark));
+      bottomAppBarTheme: BottomAppBarTheme(color: _appbarColorDark),);
 }

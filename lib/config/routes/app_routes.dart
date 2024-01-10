@@ -8,6 +8,6 @@ class AppRoutes{
 
   static Map<String,WidgetBuilder> get approutes =>{
     splashScreen : (context) => const SplashScreen(),
-    //homeScreen : (context) => const HomeScreen()
+    homeScreen : (context) => const HomeScreen()
   };
 }
