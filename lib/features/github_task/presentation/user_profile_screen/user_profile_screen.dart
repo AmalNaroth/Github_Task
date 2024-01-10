@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:github_task/core/navigation_services/navigator_services.dart';
 import 'package:github_task/core/utils/size_utils.dart';
+import 'package:github_task/features/github_task/application/repository_screen/repository_bloc.dart';
 import 'package:github_task/features/github_task/infrastructure/entites/user_entity.dart';
 import 'package:github_task/features/github_task/presentation/widgets/text_widget.dart';
 
@@ -75,11 +78,15 @@ class UserProfileScreen extends StatelessWidget {
               ),
               fHight40,
               UserProfileTileWidget(
-                  title: "${args.bio ?? "Not mentioned"}", icon: Icons.person,),
+                title: "${args.bio ?? "Not mentioned"}",
+                icon: Icons.person,
+              ),
               UserProfileTileWidget(
-                  title: "${args.location ?? "Not mentioned"}", icon: Icons.pin_drop),
+                  title: "${args.location ?? "Not mentioned"}",
+                  icon: Icons.pin_drop),
               UserProfileTileWidget(
-                  title: "${args.company ?? "Not mentioned"}", icon: Icons.apartment),
+                  title: "${args.company ?? "Not mentioned"}",
+                  icon: Icons.apartment),
               UserProfileTileWidget(
                   title: "Created by : ${args.createdAt ?? "Not mentioned"}",
                   icon: Icons.account_tree_outlined),
@@ -87,17 +94,26 @@ class UserProfileScreen extends StatelessWidget {
                   title: "Updated by : ${args.updatedAt ?? "Not mentioned"}",
                   icon: Icons.update),
               fHight20,
-              Divider(
+              const Divider(
                 color: Colors.grey,
               ),
               fHight20,
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 40, vertical: 10),
                     backgroundColor: Colors.white),
-                onPressed: () {},
+                onPressed: () {
+                  context.read<RepositoryBloc>().add(
+                        RepositoryButtonClickedEvent(
+                            repositoryUri: args.reposUrl! ?? ""),
+                      );
+                },
                 child: TextWidget(
-                    textValue: "Repository", fontColors: Colors.black),
+                    textValue: "Repository",
+                    fontColors: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17),
               )
             ],
           ),

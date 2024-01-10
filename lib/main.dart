@@ -5,11 +5,14 @@ import 'package:github_task/core/navigation_services/navigator_services.dart';
 import 'package:github_task/core/utils/size_utils.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:github_task/features/github_task/application/home_screen/home_bloc.dart';
+import 'package:github_task/features/github_task/application/repository_screen/repository_bloc.dart';
 import 'package:github_task/features/github_task/application/splash_screen/splash_bloc.dart';
+import 'package:github_task/features/github_task/infrastructure/repository/repository_screen_repository.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await configureInjection();
+  getRepositoryData(repUrl: "https://api.github.com/users/AmalNaroth/repos");
   runApp(
     const MyApp(),
   );
@@ -29,8 +32,11 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => SplashBloc(),
         ),
-         BlocProvider(
+        BlocProvider(
           create: (context) => getIt<HomeBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<RepositoryBloc>(),
         )
       ],
       child: MaterialApp(
