@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/physics.dart';
 import 'package:github_task/config/routes/app_routes.dart';
 import 'package:github_task/core/navigation_services/navigator_services.dart';
 import 'package:meta/meta.dart';

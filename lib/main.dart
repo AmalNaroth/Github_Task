@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:github_task/config/routes/app_routes.dart';
+import 'package:github_task/core/dependency_injection/dependency_injection.dart';
 import 'package:github_task/core/navigation_services/navigator_services.dart';
-import 'package:github_task/core/resources/size_utils.dart';
+import 'package:github_task/core/utils/size_utils.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:github_task/features/github_task/application/bloc/splash_bloc.dart';
+import 'package:github_task/features/github_task/application/home_screen/home_bloc.dart';
+import 'package:github_task/features/github_task/application/splash_screen/splash_bloc.dart';
 
-void main() {
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  await configureInjection();
   runApp(
     const MyApp(),
   );
@@ -25,6 +28,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => SplashBloc(),
+        ),
+         BlocProvider(
+          create: (context) => getIt<HomeBloc>(),
         )
       ],
       child: MaterialApp(

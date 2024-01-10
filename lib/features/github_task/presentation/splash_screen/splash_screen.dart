@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:github_task/core/resources/size_utils.dart';
-import 'package:github_task/features/github_task/application/bloc/splash_bloc.dart';
+import 'package:github_task/core/utils/size_utils.dart';
+import 'package:github_task/features/github_task/application/splash_screen/splash_bloc.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatefulWidget {

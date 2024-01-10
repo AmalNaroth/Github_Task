@@ -8,7 +8,7 @@ class TextWidget extends StatelessWidget {
   TextWidget(
       {super.key,
       required this.textValue,
-      this.fontColors = Colors.black,
+      this.fontColors = Colors.white,
       this.fontWeight = FontWeight.w400,
       this.fontSize = 15});
 
