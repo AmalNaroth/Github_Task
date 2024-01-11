@@ -19,6 +19,7 @@ class UserModel extends UserEntity {
     int? following,
     String? createdAt,
     String? updatedAt,
+    int? repoCount,
     this.additionalProperty,
   }) : super(
           login: login,
@@ -36,6 +37,7 @@ class UserModel extends UserEntity {
           following: following,
           createdAt: createdAt,
           updatedAt: updatedAt,
+          repoCount: repoCount
         );
 
   UserModel.fromJson(Map<String, dynamic> json) {
@@ -58,4 +60,5 @@ class UserModel extends UserEntity {
 
   @override
   List<Object?> get props => super.props + [additionalProperty];
+  
 }

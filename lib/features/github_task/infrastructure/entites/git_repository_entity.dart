@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
 
+
+// repository list entity;
 class RepositoryEntity extends Equatable {
    int? id;
    String? nodeId;

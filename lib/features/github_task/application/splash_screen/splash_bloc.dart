@@ -7,6 +7,7 @@ import 'package:meta/meta.dart';
 part 'splash_event.dart';
 part 'splash_state.dart';
 
+//splash screen implemeted
 class SplashBloc extends Bloc<SplashEvent, SplashState> {
   SplashBloc() : super(SplashInitial()) {
     on<SplashInitialEvent>((event, emit) async {

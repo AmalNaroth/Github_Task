@@ -26,7 +26,7 @@ final class HomeNoUserFoundState extends HomeState {
 
 final class HomeUserFoundState extends HomeState {
   UserEntity userData;
-  HomeUserFoundState({required this.userData});
+  HomeUserFoundState({required this.userData,});
   @override
   List<Object> get props => [userData];
 }

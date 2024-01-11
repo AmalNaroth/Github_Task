@@ -36,7 +36,10 @@ _i1.GetIt $initGetIt(
   gh.lazySingleton<_i3.HomeScreenServices>(() => _i4.HomeScreenRepository());
   gh.lazySingleton<_i5.RepositoryServices>(
       () => _i6.RepositoryScreenRepository());
-  gh.factory<_i7.HomeBloc>(() => _i7.HomeBloc(get<_i3.HomeScreenServices>()));
+  gh.factory<_i7.HomeBloc>(() => _i7.HomeBloc(
+        get<_i3.HomeScreenServices>(),
+        get<_i5.RepositoryServices>(),
+      ));
   gh.factory<_i8.RepositoryBloc>(
       () => _i8.RepositoryBloc(get<_i5.RepositoryServices>()));
   return get;

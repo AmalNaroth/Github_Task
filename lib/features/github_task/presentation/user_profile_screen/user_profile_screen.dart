@@ -49,6 +49,7 @@ class UserProfileScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
+
                             Column(
                               children: [
                                 TextWidget(

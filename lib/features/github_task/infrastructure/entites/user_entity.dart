@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
 
+
+//user values entity
 class UserEntity extends Equatable {
   String? login;
   int? id;
@@ -16,6 +18,7 @@ class UserEntity extends Equatable {
   int? following;
   String? createdAt;
   String? updatedAt;
+  int? repoCount;
 
   UserEntity({
     this.login,
@@ -33,6 +36,7 @@ class UserEntity extends Equatable {
     this.following,
     this.createdAt,
     this.updatedAt,
+    this.repoCount
   });
 
   @override
@@ -52,5 +56,6 @@ class UserEntity extends Equatable {
         following,
         createdAt,
         updatedAt,
+        repoCount
       ];
 }

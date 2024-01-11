@@ -1,5 +1,7 @@
 import 'package:github_task/features/github_task/infrastructure/entites/git_repository_entity.dart';
 
+
+//repository data model class
 class RepositoryModel extends RepositoryEntity {
 
   RepositoryModel({
@@ -13,6 +15,7 @@ class RepositoryModel extends RepositoryEntity {
     String? pushedAt,
     String? language,
     String? visibility,
+    int? repo
   }) : super(
           id: id,
           nodeId: nodeId,

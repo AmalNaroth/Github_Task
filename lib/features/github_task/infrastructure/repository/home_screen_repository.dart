@@ -8,6 +8,7 @@ import 'package:injectable/injectable.dart';
 @LazySingleton(as: HomeScreenServices)
 class HomeScreenRepository implements HomeScreenServices {
   @override
+  //seach query function and get data form api
   Future<DataState<UserEntity>> searchUser({required String userName}) async {
     try {
       final response = await Dio(
