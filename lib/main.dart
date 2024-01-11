@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:github_task/config/routes/app_routes.dart';
 import 'package:github_task/core/dependency_injection/dependency_injection.dart';
 import 'package:github_task/core/navigation_services/navigator_services.dart';
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
           create: (context) => getIt<RepositoryBloc>(),
         )
       ],
-      child: MaterialApp(
+      child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Github Task',
         theme: ThemeData(
