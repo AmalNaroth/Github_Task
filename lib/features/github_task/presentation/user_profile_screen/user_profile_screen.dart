@@ -5,6 +5,7 @@ import 'package:github_task/core/navigation_services/navigator_services.dart';
 import 'package:github_task/core/utils/size_utils.dart';
 import 'package:github_task/features/github_task/application/repository_screen/repository_bloc.dart';
 import 'package:github_task/features/github_task/infrastructure/entites/user_entity.dart';
+import 'package:github_task/features/github_task/presentation/user_profile_screen/widgets/user_profile_tile.dart';
 import 'package:github_task/features/github_task/presentation/widgets/snackbar_widget.dart';
 import 'package:github_task/features/github_task/presentation/widgets/text_widget.dart';
 
@@ -148,33 +149,3 @@ class UserProfileScreen extends StatelessWidget {
   }
 }
 
-class UserProfileTileWidget extends StatelessWidget {
-  String title;
-  IconData icon;
-  UserProfileTileWidget({super.key, required this.title, required this.icon});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          children: [
-            Icon(
-              icon,
-              color: Colors.white,
-              size: 30,
-            ),
-            fWidth30,
-            Expanded(
-              child: TextWidget(
-                textValue: title,
-                fontSize: 17,
-              ),
-            ),
-          ],
-        ),
-        fHight20,
-      ],
-    );
-  }
-}
