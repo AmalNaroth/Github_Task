@@ -57,4 +57,4 @@ Include screenshots of your app here to provide a visual representation of your 
 1. Clone the repository:
 
    ```bash
-   git clone [repository_url]
+   git clone [https://github.com/AmalNaroth/GitHub_task.git]

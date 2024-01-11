@@ -43,20 +43,29 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 150,
               ),
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.white.withOpacity(.1),
-                ),
-                child: TextField(
-                  controller: HomeScreenControlls.searchQuery,
-                  style: const TextStyle(color: Colors.white),
-                  decoration: const InputDecoration(
-                    border: InputBorder.none,
-                    hintText: "User name",
-                    hintStyle: TextStyle(color: Colors.grey),
+              Form(
+                key: HomeScreenControlls.formKey,
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white.withOpacity(.1),
+                  ),
+                  child: TextFormField(
+                    controller: HomeScreenControlls.searchQuery,
+                    style: const TextStyle(color: Colors.white),
+                    decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "User name",
+                      hintStyle: TextStyle(color: Colors.grey),
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Enter the name";
+                      }
+                      return null;
+                    },
                   ),
                 ),
               ),
@@ -96,11 +105,13 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  BlocProvider.of<HomeBloc>(context).add(
-                    HomeSeachButtonClickEvent(
-                      userName: HomeScreenControlls.searchQuery.text.trim(),
-                    ),
-                  );
+                  if (HomeScreenControlls.formKey.currentState!.validate()) {
+                    BlocProvider.of<HomeBloc>(context).add(
+                      HomeSeachButtonClickEvent(
+                        userName: HomeScreenControlls.searchQuery.text.trim(),
+                      ),
+                    );
+                  }
                 },
               )
             ],
